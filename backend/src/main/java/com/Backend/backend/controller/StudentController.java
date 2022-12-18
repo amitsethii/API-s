@@ -26,21 +26,21 @@ public class StudentController {
 	@Autowired
 	private StudentService stuService;
 	
-	//post
+	//create
 	@PostMapping("/")
-	public ResponseEntity<Student>createStu(@RequestBody Student stu){
-	Student stuCreated = this.stuService.createStudent(stu);
-	return new ResponseEntity<>(stuCreated,HttpStatus.CREATED);	
+	public ResponseEntity<Student>createStu(@RequestBody Student newStudent){
+	Student studentCreated = this.stuService.createStudent(newStudent);
+	return new ResponseEntity<>(studentCreated,HttpStatus.CREATED);	
 	}
 	
-	
+	//update
 	@PutMapping("/{id}")
-	public ResponseEntity<Student>updateStu(@RequestBody Student stu,@PathVariable Integer id ){
-		Student stuUpdated = this.stuService.updateStudent(stu, id);
-		return ResponseEntity.ok(stuUpdated);
+	public ResponseEntity<Student>updateStu(@RequestBody Student upstudent,@PathVariable Integer id ){
+		Student studentUpdated = this.stuService.updateStudent(upstudent, id);
+		return ResponseEntity.ok(studentUpdated);
 	}
 	
-	
+	//delete
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Student>deleteStu(@PathVariable Integer id ){
 		return ResponseEntity.ok(this.stuService.deleteStudent(id));
@@ -52,6 +52,7 @@ public class StudentController {
 		return ResponseEntity.ok(this.stuService.getAllStu());
 	}
 	
+	//getSingle
 	@GetMapping("/{id}")
 	public ResponseEntity<Student>getSingleStudent(@PathVariable Integer id){
 		return ResponseEntity.ok(this.stuService.getStudentById(id));

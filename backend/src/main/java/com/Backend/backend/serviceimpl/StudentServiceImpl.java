@@ -14,50 +14,50 @@ import com.Backend.backend.service.StudentService;
 public class StudentServiceImpl implements StudentService {
 	
 	@Autowired
-	private StudentRepo stuRepo;
+	private StudentRepo studentRepo;
 	
 
 	@Override
-	public Student createStudent(Student stu) {
+	public Student createStudent(Student newStudent) {
 		// TODO Auto-generated method stub
-		Student saveStu = this.stuRepo.save(stu);
+		Student saveStu = this.studentRepo.save(newStudent);
 		return saveStu;
 	}
 	
 	
 
 	@Override
-	public Student updateStudent(Student inputStu, Integer id) {
+	public Student updateStudent(Student upstudent, Integer id) {
 		// TODO Auto-generated method stub
-		Student changeStudent = this.stuRepo.findById(id).orElse(null);
-		changeStudent.setName(inputStu.getName());
-		changeStudent.setAbout((inputStu.getAbout()));
+		Student oldStudent = this.studentRepo.findById(id).orElse(null);
+		oldStudent.setName(upstudent.getName());
+		oldStudent.setAbout((upstudent.getAbout()));
 		
-		Student updatedStudent = this.stuRepo.save(changeStudent);
+		Student updatedStudent = this.studentRepo.save(oldStudent);
 		return updatedStudent;
 	}
 
-	//getbyid
+	
 	@Override
 	public Student getStudentById(Integer id) {
 		// TODO Auto-generated method stu
-	Student student = this.stuRepo.findById(id).orElse(null);
+	Student student = this.studentRepo.findById(id).orElse(null);
 		return student;
 	}
 
-	//getAll
+	
 	@Override
 	public List<Student> getAllStu() {
 		// TODO Auto-generated method stub
-		List<Student> students = this.stuRepo.findAll();
+		List<Student> students = this.studentRepo.findAll();
 		return students;
 	}
 	
 	@Override
 	public Student deleteStudent(Integer id) {
 		// TODO Auto-generated method stub
-	Student student = this.stuRepo.findById(id).orElse(null);
-	this.stuRepo.delete(student);
+	Student student = this.studentRepo.findById(id).orElse(null);
+	this.studentRepo.delete(student);
 	return student;
 	}
 	

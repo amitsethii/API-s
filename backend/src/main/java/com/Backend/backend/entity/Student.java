@@ -18,6 +18,7 @@ public class Student {
 	
 	private String about;
 
+	//getters and setters
 	public int getId() {
 		return id;
 	}
