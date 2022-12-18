@@ -18,4 +18,43 @@ public class Student {
 	
 	private String about;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAbout() {
+		return about;
+	}
+
+	public void setAbout(String about) {
+		this.about = about;
+	}
+
+	public Student(int id, String name, String about) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.about = about;
+	}
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+
 }
