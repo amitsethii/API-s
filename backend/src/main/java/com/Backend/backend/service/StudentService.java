@@ -10,6 +10,6 @@ public interface StudentService {
 	Student updateStudent(Student stu, Integer id);
 	Student getStudentById(Integer id);
 	List<Student>getAllStu();
-	void deleteStudent(Integer stu);
+	Student deleteStudent(Integer id);
 
 }
